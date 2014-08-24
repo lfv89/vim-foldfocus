@@ -10,7 +10,6 @@ The ideia behind this plugin is to separate an important piece of code in to its
 
 ![Screenshot](images/ff2.gif)
 ![Screenshot](images/ff3.gif)
-![Screenshot](images/foldfocus1.gif)
 
 ## Installation ##
 
