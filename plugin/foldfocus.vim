@@ -1,7 +1,8 @@
-function! FoldFocus()
+function! FoldFocus(buffer_function)
   let my_filetype = &filetype
   let winnr = bufwinnr('^FoldFocus$')
 
+  silent! normal! zo
   silent! normal! zc
   silent! normal! k3yy
 
@@ -12,8 +13,10 @@ function! FoldFocus()
   else
       set modifiable
       setlocal splitright
-      vnew FoldFocus
 
+      execute a:buffer_function . ' FoldFocus'
+
+      setlocal nosplitright
       setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
   endif
 
