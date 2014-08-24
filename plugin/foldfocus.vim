@@ -21,6 +21,7 @@ function! FoldFocus()
 
   silent! normal! p
   silent! normal! ggdd
+  silent! normal! gg=G
   silent! normal! zR
 
   set nomodifiable
