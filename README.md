@@ -40,6 +40,9 @@ If you want to focus in place, use:
 nmap <CR> :call FoldFocus('e')<CR>
 ```
 
+In this case, you can hit ```q``` to leave the temporary buffer and get
+back to the original one.
+
 If you want to focus in a side buffer, use:
 
 ```vimscript
