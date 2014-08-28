@@ -6,13 +6,15 @@ Foldfocus is a vim plugin that extracts the text from the current fold level and
 
 The ideia behind this plugin is to separate a specific piece of code in to its own context (buffer). This is useful when you are trying to understand a particular messy piece of code, and you want to be able to search words using ```/```, ```*```, ```#``` without leaving the context of the code that you are exploring.
 
+Also, if you do change anything in the temp buffer, those changes will automatically be syncronized with the original buffer.
+
 ## Screengifs ##
 
 In place focus:
-![Screenshot](images/ff2.gif)
+![Screenshot](https://s3-us-west-2.amazonaws.com/vim-foldfocus/ff2.gif)
 
 Side buffer focus:
-![Screenshot](images/ff3.gif)
+![Screenshot](https://s3-us-west-2.amazonaws.com/vim-foldfocus/ff3.gif)
 
 ## Installation ##
 
@@ -35,14 +37,16 @@ All you have to do is to map the function to a key of your choice.
 If you want to focus in place, use:
 
 ```vimscript
-map <Leader>ff :call FoldFocus('e')<CR>
+nmap <CR> :call FoldFocus('e')<CR>
 ```
 
 If you want to focus in a side buffer, use:
 
 ```vimscript
-map <Leader>ff :call FoldFocus('vnew')<CR>
+nmap <Leader><CR> :call FoldFocus('vnew')<CR>
 ```
+
+Of course, you are free to change the mapping to use whatever keys you want.
 
 ## About
 
