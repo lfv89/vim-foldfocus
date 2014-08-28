@@ -82,31 +82,35 @@ function! FoldFocus(bufferFunction)
 
   let s:foldFocus['foldStart'] = line('.')
 
-  silent! normal! zo
-  silent! normal! zc
-  silent! normal! k3yy
-
-  if (tmpBufferWindow >= 0)
-      execute tmpBufferWindow . 'wincmd w'
-      silent! normal! gg"_dG
+  if (foldclosed(s:foldFocus['foldStart']) == -1)
+    echo 'This is not a closed fold!'
   else
-      execute a:bufferFunction . ' ' . tmpBufferName
+    silent! normal! zo
+    silent! normal! zc
+    silent! normal! k3yy
 
-      setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
+    if (tmpBufferWindow >= 0)
+        execute tmpBufferWindow . 'wincmd w'
+        silent! normal! gg"_dG
+    else
+        execute a:bufferFunction . ' ' . tmpBufferName
 
-      if (a:bufferFunction == 'e')
-        nnoremap <buffer> q :bp<cr>
-      endif
+        setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
 
-      call AddNotifyWindowClose(tmpBufferName, 'PasteFocusContent')
-      au QuitPre,BufDelete,BufUnload FoldFocus call CopyFocusContent()
+        if (a:bufferFunction == 'e')
+          nnoremap <buffer> q :bp<cr>
+        endif
+
+        call AddNotifyWindowClose(tmpBufferName, 'PasteFocusContent')
+        au QuitPre,BufDelete,BufUnload FoldFocus call CopyFocusContent()
+    endif
+
+    execute 'set filetype=' . myFiletype
+
+    silent! normal! p
+    silent! normal! ggdd
+    silent! normal! zR
   endif
-
-  execute 'set filetype=' . myFiletype
-
-  silent! normal! p
-  silent! normal! ggdd
-  silent! normal! zR
 endfunction
 
 function! PasteFocusContent(windowTitle)
