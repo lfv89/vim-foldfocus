@@ -97,9 +97,7 @@ function! FoldFocus(bufferFunction)
 
         setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
 
-        if (a:bufferFunction == 'e')
-          nnoremap <buffer> q :bp<cr>
-        endif
+        nnoremap <buffer> q :bd<cr>
 
         call AddNotifyWindowClose(tmpBufferName, 'PasteFocusContent')
         au QuitPre,BufDelete,BufUnload FoldFocus call CopyFocusContent()
