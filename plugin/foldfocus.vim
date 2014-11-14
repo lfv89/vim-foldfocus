@@ -117,8 +117,12 @@ function! PasteFocusContent(windowTitle)
   execute s:foldFocus['originalBufferWindow'] . 'wincmd w'
   execute s:foldFocus['foldStart']
 
+  let is_not_eof = (foldclosedend(s:foldFocus['foldStart']) != line('$'))
   normal! k3"_dd
-  normal! k
+  if (is_not_eof)
+    normal! k
+  endif
+  unlet is_not_eof
   normal! p
   silent! normal! jzc
 
