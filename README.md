@@ -53,8 +53,8 @@ nmap <Leader><CR> :call FoldFocus('vnew')<CR>
 
 Of course, you are free to change the mapping to use whatever keys you want.
 
-## About
+## Author
 
-Follow-me! [@vasconcelloslf](http://twitter.com/vasconcelloslf)
+[@lfv89](http://twitter.com/lfv89)
 
-[http://luisvasconcellos.com](http://www.luisvasconcellos.com)
+[http://luisvasconcellos.com](http://luisvasconcellos.com)
