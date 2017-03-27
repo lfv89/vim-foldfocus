@@ -11,7 +11,7 @@ Also, if you do change anything in the temp buffer, those changes will automatic
 Using vundle, add this to your .vimrc:
 
 ```
-Bundle 'vasconcelloslf/vim-foldfocus'
+Bundle 'lfv89/vim-foldfocus'
 ```
 
 Than run:
